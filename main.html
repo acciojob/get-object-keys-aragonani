@@ -9,6 +9,73 @@
 <body>
 	<!-- the entire body must be written by student -->
     <script type="text/javascript" src="./script.js">
+		class Person {
+  private _name: string;
+  private _age: number;
+
+  constructor(name: string, age: number) {
+    this._name = name;
+    this._age = age;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get age(): number {
+    return this._age;
+  }
+
+  set age(age: number) {
+    this._age = age;
+  }
+}
+
+class Student extends Person {
+  study(): void {
+    console.log(`${this.name} is studying`);
+  }
+}
+
+class Teacher extends Person {
+  teach(): void {
+    console.log(`${this.name} is teaching`);
+  }
+}
+
+// Test cases
+const person = new Person("John", 25);
+console.log(person.name);  // Output: John
+
+person.age = 30;
+console.log(person.age);  // Output: 30
+
+const student = new Student("Alice", 22);
+student.study();  // Output: Alice is studying
+
+const teacher = new Teacher("Bob", 40);
+teacher.teach();  // Output: Bob is teaching
+
+// Create the student object
+const studentObj = {
+  name: "John",
+};
+
+// Function to get all keys from the object
+function getKeys(obj: object): string[] {
+  return Object.keys(obj);
+}
+
+// Testing the function
+console.log(getKeys(studentObj)); // Output: ["name"]
+
+// Additional test cases
+const testObj1 = { name: "John", age: 25, city: "New York" };
+console.log(getKeys(testObj1)); // Output: ["name", "age", "city"]
+
+const testObj2 = { name: "Alice" };
+console.log(getKeys(testObj2)); // Output: ["name"]
+
 </script>
 
 </body>
